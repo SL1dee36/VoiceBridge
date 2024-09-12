@@ -27,7 +27,7 @@ class MicrophoneHandler:
                     logger.warning("Не удалось распознать речь.")
                 except sr.RequestError as e:
                     logger.error(f"Ошибка запроса к Google Speech Recognition: {e}")
-                await asyncio.sleep(0)  # Добавляем cooperative multitasking
+                await asyncio.sleep(0)
 
     async def start(self):
         self.listening_task = asyncio.create_task(self.listen())
