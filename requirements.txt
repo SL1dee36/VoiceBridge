@@ -1,0 +1,7 @@
+customtkinter 
+SpeechRecognition
+deep_translator
+gTTS 
+playsound
+pyaudio
+pyttsx3

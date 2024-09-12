@@ -1,0 +1,746 @@
+2024-09-12 20:54:33,457 - DEBUG - __init__.py:143 - CoInitializeEx(None, 2)
+2024-09-12 20:54:33,531 - INFO - _code_cache.py:101 - Imported existing <module 'comtypes.gen' from 'c:\\Users\\ARTEMIS\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2024-09-12 20:54:33,531 - INFO - _code_cache.py:75 - Using writeable comtypes cache directory: 'c:\Users\ARTEMIS\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2024-09-12 20:54:34,116 - DEBUG - __init__.py:262 - SAPI.SPVoice -> {96749377-3391-11D2-9EE3-00C04F797396}
+2024-09-12 20:54:34,116 - DEBUG - __init__.py:270 - CoCreateInstance({96749377-3391-11D2-9EE3-00C04F797396}, clsctx=None, interface=None)
+2024-09-12 20:54:34,133 - DEBUG - __init__.py:61 - GetBestInterface(<POINTER(IUnknown) ptr=0x23b3cf6d320 at 23b52cbb150>)
+2024-09-12 20:54:34,133 - DEBUG - __init__.py:65 - Does implement IProvideClassInfo
+2024-09-12 20:54:34,135 - DEBUG - __init__.py:103 - Default interface is {269316D8-57BD-11D2-9EEE-00C04F797396}
+2024-09-12 20:54:34,135 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b3cf6d360 at 23b52cbb750>
+2024-09-12 20:54:34,135 - DEBUG - _generate.py:124 - GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+2024-09-12 20:54:34,136 - DEBUG - __init__.py:117 - Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechVoice'>
+2024-09-12 20:54:34,136 - DEBUG - __init__.py:131 - Final result is <POINTER(ISpeechVoice) ptr=0x23b3cf6d360 at 23b52cbb7d0>
+2024-09-12 20:54:34,136 - DEBUG - unknwn.py:385 - Release <POINTER(IProvideClassInfo) ptr=0x23b3cf6d380 at 23b52cbb350>
+2024-09-12 20:54:34,137 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b50018058 at 23b52cbb3d0>
+2024-09-12 20:54:34,137 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b500180b0 at 23b52cbb4d0>
+2024-09-12 20:54:34,137 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeLib) ptr=0x23b4fafe680 at 23b52cbb750>
+2024-09-12 20:54:34,137 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b3cf6d320 at 23b52cbb150>
+2024-09-12 20:54:34,138 - DEBUG - _events.py:76 - <POINTER(ISpeechVoice) ptr=0x23b3cf6d360 at 23b52cbb7d0> using sinkinterface from clsid <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
+2024-09-12 20:54:34,138 - DEBUG - unknwn.py:385 - Release <POINTER(IProvideClassInfo2) ptr=0x23b3cf6d380 at 23b52cbb150>
+2024-09-12 20:54:34,139 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.VoiceChange not implemented
+2024-09-12 20:54:34,140 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.Bookmark not implemented
+2024-09-12 20:54:34,140 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.Word not implemented
+2024-09-12 20:54:34,140 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.Sentence not implemented
+2024-09-12 20:54:34,140 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.Phoneme not implemented
+2024-09-12 20:54:34,140 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.Viseme not implemented
+2024-09-12 20:54:34,140 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.AudioLevel not implemented
+2024-09-12 20:54:34,141 - DEBUG - _comobject.py:276 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>: _ISpeechVoiceEvents.EnginePrivate not implemented
+2024-09-12 20:54:34,141 - DEBUG - _events.py:25 - Start advise <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
+2024-09-12 20:54:34,141 - DEBUG - _comobject.py:651 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.QueryInterface({A372ACD1-3BEF-4BBD-8FFB-CB3E2B416AF8}) -> S_OK
+2024-09-12 20:54:34,141 - DEBUG - _comobject.py:593 - 1 active COM objects: Added   <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>
+2024-09-12 20:54:34,141 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 1
+2024-09-12 20:54:34,143 - DEBUG - unknwn.py:385 - Release <POINTER(IConnectionPointContainer) ptr=0x23b3cf6d388 at 23b52d48d50>
+2024-09-12 20:54:34,176 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x23b3cf6dfc0 at 23b52d48d50>)
+2024-09-12 20:54:34,176 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectToken) ptr=0x23b3cf6dfc0 at 23b52d48d50>
+2024-09-12 20:54:34,177 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x23b51060170 at 23b52d48d50>)
+2024-09-12 20:54:34,177 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b540d2d50 at 23b52d48e50>
+2024-09-12 20:54:34,177 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(IDispatch) ptr=0x23b540f9660 at 23b52d48fd0>)
+2024-09-12 20:54:34,177 - DEBUG - __init__.py:61 - GetBestInterface(<POINTER(IDispatch) ptr=0x23b540f9660 at 23b52d48fd0>)
+2024-09-12 20:54:34,178 - DEBUG - __init__.py:69 - Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+2024-09-12 20:54:34,178 - DEBUG - __init__.py:90 - Does NOT implement IProvideClassInfo/IProvideClassInfo2
+2024-09-12 20:54:34,179 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b50018160 at 23b52d49250>
+2024-09-12 20:54:34,179 - DEBUG - __init__.py:103 - Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+2024-09-12 20:54:34,180 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b540f9660 at 23b52d49350>
+2024-09-12 20:54:34,180 - DEBUG - _generate.py:124 - GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+2024-09-12 20:54:34,180 - DEBUG - __init__.py:117 - Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+2024-09-12 20:54:34,180 - DEBUG - __init__.py:131 - Final result is <POINTER(ISpeechObjectToken) ptr=0x23b540f9660 at 23b52d49250>
+2024-09-12 20:54:34,180 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b540f9660 at 23b52d49150>
+2024-09-12 20:54:34,180 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b50018160 at 23b52d492d0>
+2024-09-12 20:54:34,181 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeLib) ptr=0x23b4fafe680 at 23b52d49350>
+2024-09-12 20:54:34,181 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b540f9660 at 23b52d48fd0>
+2024-09-12 20:54:34,181 - DEBUG - unknwn.py:385 - Release <POINTER(IEnumVARIANT) ptr=0x23b540d2d50 at 23b52d48cd0>
+2024-09-12 20:54:34,181 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectTokens) ptr=0x23b51060170 at 23b52d48d50>
+2024-09-12 20:54:34,181 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectToken) ptr=0x23b540f9660 at 23b52d49250>
+2024-09-12 20:54:34,182 - DEBUG - proactor_events.py:634 - Using proactor: IocpProactor
+2024-09-12 20:54:36,976 - INFO - VoiceBridge-ui.py:83 - ����� ���������� �������� �������.
+2024-09-12 20:54:36,977 - INFO - vb_mic.py:17 - �������� �����������.
+2024-09-12 20:54:41,895 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:54:42,676 - DEBUG - vb_mic.py:24 - ������������ �����: ������ ��� ����
+2024-09-12 20:54:42,677 - INFO - vb_ai_translator.py:18 - ����� �������� �������.
+2024-09-12 20:54:42,677 - DEBUG - vb_ai_translator.py:22 - ������� ����� ��� ��������: ������ ��� ����
+2024-09-12 20:54:42,686 - DEBUG - connectionpool.py:1051 - Starting new HTTPS connection (1): translate.google.com:443
+2024-09-12 20:54:42,956 - DEBUG - connectionpool.py:546 - https://translate.google.com:443 "GET /m?tl=en&sl=ru&q=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82+%D0%9A%D0%B0%D0%BA+%D0%B4%D0%B5%D0%BB%D0%B0 HTTP/11" 200 None
+2024-09-12 20:54:43,016 - DEBUG - vb_ai_translator.py:29 - �������: Hi, how are you
+2024-09-12 20:54:43,016 - DEBUG - VoiceBridge-ui.py:92 - ������� �������: Hi, how are you
+2024-09-12 20:54:44,225 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:54:44,789 - WARNING - vb_mic.py:27 - �� ������� ���������� ����.
+2024-09-12 20:54:44,790 - DEBUG - vb_voiceupper.py:13 - ����������� ������: Hi, how are you
+2024-09-12 20:54:47,229 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,229 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,229 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,229 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d4b450>)
+2024-09-12 20:54:47,230 - DEBUG - __init__.py:61 - GetBestInterface(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d4b450>)
+2024-09-12 20:54:47,230 - DEBUG - __init__.py:69 - Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+2024-09-12 20:54:47,230 - DEBUG - __init__.py:90 - Does NOT implement IProvideClassInfo/IProvideClassInfo2
+2024-09-12 20:54:47,230 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b50018160 at 23b52d4bed0>
+2024-09-12 20:54:47,230 - DEBUG - __init__.py:103 - Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+2024-09-12 20:54:47,231 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b510455e0 at 23b52d4b550>
+2024-09-12 20:54:47,231 - DEBUG - _generate.py:124 - GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+2024-09-12 20:54:47,231 - DEBUG - __init__.py:117 - Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+2024-09-12 20:54:47,231 - DEBUG - __init__.py:131 - Final result is <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d4bed0>
+2024-09-12 20:54:47,232 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d4b5d0>
+2024-09-12 20:54:47,232 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b50018160 at 23b52d4b8d0>
+2024-09-12 20:54:47,232 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeLib) ptr=0x23b4fafe680 at 23b52d4b550>
+2024-09-12 20:54:47,232 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d4b450>
+2024-09-12 20:54:47,232 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_VoiceChange called
+2024-09-12 20:54:47,232 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d4bed0>
+2024-09-12 20:54:47,232 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Sentence called
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,233 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,234 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,234 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,234 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,234 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:54:47,234 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,234 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,235 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,236 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,236 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,236 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,236 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,236 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,236 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,237 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,238 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,238 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,238 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,238 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,238 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:54:47,238 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,239 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,240 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,240 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,240 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,240 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,240 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,240 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,241 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,241 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,241 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,241 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,241 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,241 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,242 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,242 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,242 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,242 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,242 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,242 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,243 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,244 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,245 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,245 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,245 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,245 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,245 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,245 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,246 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,247 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,248 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,248 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,248 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,248 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,248 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,248 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:54:47,249 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,249 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,249 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:54:47,249 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:47,249 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:54:47,249 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:54:55,095 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:54:55,848 - DEBUG - vb_mic.py:24 - ������������ �����: �������� ���-������
+2024-09-12 20:54:55,849 - DEBUG - vb_ai_translator.py:22 - ������� ����� ��� ��������: �������� ���-������
+2024-09-12 20:54:55,851 - DEBUG - connectionpool.py:1051 - Starting new HTTPS connection (1): translate.google.com:443
+2024-09-12 20:54:56,072 - DEBUG - connectionpool.py:546 - https://translate.google.com:443 "GET /m?tl=en&sl=ru&q=%D1%80%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D0%B8+%D1%87%D1%82%D0%BE-%D0%BD%D0%B8%D0%B1%D1%83%D0%B4%D1%8C HTTP/11" 200 None
+2024-09-12 20:54:57,142 - DEBUG - vb_ai_translator.py:29 - �������: tell me something
+2024-09-12 20:54:57,142 - DEBUG - VoiceBridge-ui.py:92 - ������� �������: tell me something
+2024-09-12 20:54:59,435 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:54:59,829 - WARNING - vb_mic.py:27 - �� ������� ���������� ����.
+2024-09-12 20:54:59,830 - DEBUG - vb_voiceupper.py:13 - ����������� ������: tell me something
+2024-09-12 20:55:01,930 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,931 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,931 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,931 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76250>)
+2024-09-12 20:55:01,931 - DEBUG - __init__.py:61 - GetBestInterface(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76250>)
+2024-09-12 20:55:01,931 - DEBUG - __init__.py:69 - Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+2024-09-12 20:55:01,931 - DEBUG - __init__.py:90 - Does NOT implement IProvideClassInfo/IProvideClassInfo2
+2024-09-12 20:55:01,932 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b50018160 at 23b52d76450>
+2024-09-12 20:55:01,932 - DEBUG - __init__.py:103 - Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+2024-09-12 20:55:01,932 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b510455e0 at 23b52d76550>
+2024-09-12 20:55:01,932 - DEBUG - _generate.py:124 - GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+2024-09-12 20:55:01,932 - DEBUG - __init__.py:117 - Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+2024-09-12 20:55:01,933 - DEBUG - __init__.py:131 - Final result is <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d76450>
+2024-09-12 20:55:01,933 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d763d0>
+2024-09-12 20:55:01,933 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b50018160 at 23b52d764d0>
+2024-09-12 20:55:01,933 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeLib) ptr=0x23b4fafe680 at 23b52d76550>
+2024-09-12 20:55:01,933 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76250>
+2024-09-12 20:55:01,933 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_VoiceChange called
+2024-09-12 20:55:01,933 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d76450>
+2024-09-12 20:55:01,933 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,933 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,933 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Sentence called
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,934 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,935 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,935 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:01,935 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,935 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,935 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,935 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,936 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,937 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,937 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,937 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,937 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,937 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,937 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,938 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,939 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,940 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,941 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,941 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,941 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,941 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:01,941 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,941 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,942 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,943 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,944 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,944 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,944 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,944 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,944 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,945 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,946 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,946 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,946 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,946 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,946 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,946 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,947 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,948 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:01,949 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:01,949 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:01,949 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:10,805 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:55:11,941 - DEBUG - vb_mic.py:24 - ������������ �����: ��� ��� ���
+2024-09-12 20:55:11,942 - DEBUG - vb_ai_translator.py:22 - ������� ����� ��� ��������: ��� ��� ���
+2024-09-12 20:55:11,944 - DEBUG - connectionpool.py:1051 - Starting new HTTPS connection (1): translate.google.com:443
+2024-09-12 20:55:12,221 - DEBUG - connectionpool.py:546 - https://translate.google.com:443 "GET /m?tl=en&sl=ru&q=%D1%80%D0%B0%D0%B7+%D0%B4%D0%B2%D0%B0+%D1%82%D1%80%D0%B8 HTTP/11" 200 None
+2024-09-12 20:55:12,304 - DEBUG - vb_ai_translator.py:29 - �������: one two three
+2024-09-12 20:55:12,304 - DEBUG - VoiceBridge-ui.py:92 - ������� �������: one two three
+2024-09-12 20:55:15,945 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:55:16,693 - WARNING - vb_mic.py:27 - �� ������� ���������� ����.
+2024-09-12 20:55:16,693 - DEBUG - vb_voiceupper.py:13 - ����������� ������: one two three
+2024-09-12 20:55:18,459 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,459 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,459 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,459 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76f50>)
+2024-09-12 20:55:18,459 - DEBUG - __init__.py:61 - GetBestInterface(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76f50>)
+2024-09-12 20:55:18,460 - DEBUG - __init__.py:69 - Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+2024-09-12 20:55:18,460 - DEBUG - __init__.py:90 - Does NOT implement IProvideClassInfo/IProvideClassInfo2
+2024-09-12 20:55:18,460 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b50018160 at 23b52d77150>
+2024-09-12 20:55:18,460 - DEBUG - __init__.py:103 - Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+2024-09-12 20:55:18,460 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b510455e0 at 23b52d77250>
+2024-09-12 20:55:18,460 - DEBUG - _generate.py:124 - GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+2024-09-12 20:55:18,461 - DEBUG - __init__.py:117 - Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+2024-09-12 20:55:18,461 - DEBUG - __init__.py:131 - Final result is <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d77150>
+2024-09-12 20:55:18,461 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d770d0>
+2024-09-12 20:55:18,461 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b50018160 at 23b52d771d0>
+2024-09-12 20:55:18,461 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeLib) ptr=0x23b4fafe680 at 23b52d77250>
+2024-09-12 20:55:18,461 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76f50>
+2024-09-12 20:55:18,461 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_VoiceChange called
+2024-09-12 20:55:18,462 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d77150>
+2024-09-12 20:55:18,462 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,462 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,462 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Sentence called
+2024-09-12 20:55:18,462 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,462 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,462 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,463 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,463 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,463 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,463 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,463 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,463 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,464 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,465 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,466 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:18,467 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,467 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,467 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,467 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,467 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,467 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,468 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,469 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,470 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,471 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,471 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,471 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,471 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,471 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,471 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,472 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,472 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,472 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,472 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,472 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,472 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:18,473 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,473 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,473 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:18,473 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:18,473 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:18,473 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:26,094 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:55:27,316 - DEBUG - vb_mic.py:24 - ������������ �����: � ����� ����� ������ �� ����� � ������ ������
+2024-09-12 20:55:27,317 - DEBUG - vb_ai_translator.py:22 - ������� ����� ��� ��������: � ����� ����� ������ �� ����� � ������ ������
+2024-09-12 20:55:27,319 - DEBUG - connectionpool.py:1051 - Starting new HTTPS connection (1): translate.google.com:443
+2024-09-12 20:55:27,564 - DEBUG - connectionpool.py:546 - https://translate.google.com:443 "GET /m?tl=en&sl=ru&q=%D0%AF+%D0%BE%D1%87%D0%B5%D0%BD%D1%8C+%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E+%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D1%8C+%D0%BD%D0%B0+%D1%83%D0%BB%D0%B8%D1%86%D0%B5+%D0%B2+%D0%B6%D0%B0%D1%80%D0%BA%D1%83%D1%8E+%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D1%83 HTTP/11" 200 None
+2024-09-12 20:55:28,641 - DEBUG - vb_ai_translator.py:29 - �������: I really like walking outside in hot weather.
+2024-09-12 20:55:28,641 - DEBUG - VoiceBridge-ui.py:92 - ������� �������: I really like walking outside in hot weather.
+2024-09-12 20:55:32,425 - DEBUG - vb_mic.py:22 - ����� ��������. �������� �� �������������...
+2024-09-12 20:55:33,424 - WARNING - vb_mic.py:27 - �� ������� ���������� ����.
+2024-09-12 20:55:33,424 - DEBUG - vb_voiceupper.py:13 - ����������� ������: I really like walking outside in hot weather.
+2024-09-12 20:55:37,165 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,165 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,165 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,165 - DEBUG - __init__.py:41 - wrap_outparam(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d771d0>)
+2024-09-12 20:55:37,165 - DEBUG - __init__.py:61 - GetBestInterface(<POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d771d0>)
+2024-09-12 20:55:37,165 - DEBUG - __init__.py:69 - Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+2024-09-12 20:55:37,166 - DEBUG - __init__.py:90 - Does NOT implement IProvideClassInfo/IProvideClassInfo2
+2024-09-12 20:55:37,166 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b50018160 at 23b52d76bd0>
+2024-09-12 20:55:37,166 - DEBUG - __init__.py:103 - Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+2024-09-12 20:55:37,166 - DEBUG - unknwn.py:385 - Release <POINTER(IUnknown) ptr=0x23b510455e0 at 23b52d77250>
+2024-09-12 20:55:37,166 - DEBUG - _generate.py:124 - GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+2024-09-12 20:55:37,167 - DEBUG - __init__.py:117 - Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+2024-09-12 20:55:37,167 - DEBUG - __init__.py:131 - Final result is <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d76bd0>
+2024-09-12 20:55:37,167 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d76750>
+2024-09-12 20:55:37,167 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeInfo) ptr=0x23b50018160 at 23b52d76450>
+2024-09-12 20:55:37,167 - DEBUG - unknwn.py:385 - Release <POINTER(ITypeLib) ptr=0x23b4fafe680 at 23b52d77250>
+2024-09-12 20:55:37,167 - DEBUG - unknwn.py:385 - Release <POINTER(IDispatch) ptr=0x23b510455e0 at 23b52d771d0>
+2024-09-12 20:55:37,167 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_VoiceChange called
+2024-09-12 20:55:37,167 - DEBUG - unknwn.py:385 - Release <POINTER(ISpeechObjectToken) ptr=0x23b510455e0 at 23b52d76bd0>
+2024-09-12 20:55:37,168 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,168 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,168 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Sentence called
+2024-09-12 20:55:37,168 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,168 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,168 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,169 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,169 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,169 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,169 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,169 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,169 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,170 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,170 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,170 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,170 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,170 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,170 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,171 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,172 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,172 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,172 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,172 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,172 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,172 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,173 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,173 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,173 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,173 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,173 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,173 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,174 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,174 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,174 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,174 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,174 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,174 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,175 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,175 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,175 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,175 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,175 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,175 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,176 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,177 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,177 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,177 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,177 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,177 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,177 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,178 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,178 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,178 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,178 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,178 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,178 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,179 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,180 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,180 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,180 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,180 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,180 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,180 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,181 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,181 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,181 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,181 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,181 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,181 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,182 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,182 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,182 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,182 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,182 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,182 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,183 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,184 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,184 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,184 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,184 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,184 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,184 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,185 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,186 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,187 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,187 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,187 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,187 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,187 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,188 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,189 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,189 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,189 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,189 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,189 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,189 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,190 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,191 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,192 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,192 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,192 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,192 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,192 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,192 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,193 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,194 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,195 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,195 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,195 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,195 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,195 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,195 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,196 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,197 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,197 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,197 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,197 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,197 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,197 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,198 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,199 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,200 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,201 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,201 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,201 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,201 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,201 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,201 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,202 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,203 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,204 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,204 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,204 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,204 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,204 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,204 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Word called
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,205 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,206 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,207 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,207 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,207 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,207 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,207 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,207 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,208 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,209 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,210 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,210 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,210 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,210 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Phoneme called
+2024-09-12 20:55:37,210 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,210 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,211 - DEBUG - _comobject.py:87 - unimplemented method _ISpeechVoiceEvents_Viseme called
+2024-09-12 20:55:37,211 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
+2024-09-12 20:55:37,211 - DEBUG - _comobject.py:620 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.AddRef() -> 2
+2024-09-12 20:55:37,211 - DEBUG - _comobject.py:636 - <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x0000023B52C965A0>.Release() -> 1
