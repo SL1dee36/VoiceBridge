@@ -13,7 +13,7 @@ class VoiceOutput:
         logger.debug(f"Озвучивание текста: {text}")
         self.engine.say(text)
         self.engine.runAndWait()
-        await asyncio.sleep(0)  # Добавляем cooperative multitasking
+        await asyncio.sleep(0)
 
     def stop(self):
         self.engine.stop()
