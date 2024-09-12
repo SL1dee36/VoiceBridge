@@ -98,8 +98,8 @@ class VoiceBridgeApp(ctk.CTk):
         logging.info("Поток обновления перевода остановлен.")
 
     async def run(self):
-        while True: # Бесконечный цикл для обновления интерфейса
-            self.update()  # Обновляем интерфейс CustomTkinter 
+        while True:
+            self.update() 
             await asyncio.sleep(0.01)  # Небольшая задержка, чтобы не нагружать процессор
         
 if __name__ == "__main__":
