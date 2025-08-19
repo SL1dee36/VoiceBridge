@@ -40,7 +40,7 @@ QMainWindow {
     background-color: #1e2228;
 }
 #LoginWidget, #MainWidget {
-    background-color: #282c34;
+    background-color: #21252b;
 }
 QLineEdit {
     background-color: #21252b;
