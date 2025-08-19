@@ -1,0 +1,6 @@
+pyaudio
+pyside6
+qt-material
+numpy
+vosk 
+SpeechRecognition
