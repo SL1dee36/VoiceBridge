@@ -14,38 +14,26 @@ from PySide6.QtWidgets import (
     QPushButton, QLineEdit, QLabel, QListWidget, QListWidgetItem,
     QComboBox, QSlider, QFrame, QStackedWidget, QSizePolicy, QCheckBox,
     QMenu, QWidgetAction,
-    QSystemTrayIcon, QStyle 
+    QSystemTrayIcon, QStyle, QSplitter
 )
 from PySide6.QtCore import (
     Qt, QThread, Signal, QSize, QTimer, QRectF, Slot, QPoint,
-    # --- ИЗМЕНЕНИЕ: Добавляем QByteArray для работы с SVG данными ---
     QByteArray
 )
 from PySide6.QtGui import (
     QPainter, QColor, QBrush, QPen, QFont, QIcon, QPalette, QAction,
-    # --- ИЗМЕНЕНИЕ: Добавляем QPixmap для отрисовки SVG в иконку ---
-    QPixmap
+    QPixmap, QPainterPath
 )
-# --- ИЗМЕНЕНИЕ: Добавляем QSvgRenderer для работы с SVG ---
 from PySide6.QtSvg import QSvgRenderer
-
-# --- ИЗМЕНЕНИЕ: Переменные для вашего SVG-кода ---
-# --- ВСТАВЬТЕ ВАШ SVG-КОД СЮДА ---
-# Я добавил простые SVG-заглушки, чтобы код работал "из коробки"
-# Убедитесь, что ваш SVG имеет атрибуты width="100%" height="100%" и viewBox
-
 
 SVG_ICON_LIGHT = """<?xml version="1.0" encoding="UTF-8"?>
 <svg width="256" height="256" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="vb_grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <!-- rgba(151, 255, 249, 1) -->
             <stop offset="0%" style="stop-color:#97FFF9; stop-opacity:1" />
-            <!-- rgba(78, 16, 255, 1) -->
             <stop offset="100%" style="stop-color:#4E10FF; stop-opacity:1" />
         </linearGradient>
     </defs>
-    <!-- Белый круг -->
     <circle cx="128" cy="128" r="128" fill="url(#vb_grad)"/>
 </svg>
 """
@@ -54,9 +42,7 @@ SVG_ICON_DARK = """<?xml version="1.0" encoding="UTF-8"?>
 <svg width="256" height="256" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="vb_grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <!-- rgba(151, 255, 249, 1) -->
             <stop offset="0%" style="stop-color:#97FFF9; stop-opacity:1" />
-            <!-- rgba(78, 16, 255, 1) -->
             <stop offset="100%" style="stop-color:#4E10FF; stop-opacity:1" />
         </linearGradient>
     </defs>
@@ -114,8 +100,43 @@ QPushButton:pressed {
 }
 QListWidget {
     background-color: #21252b;
+    border: 0px solid #3b4048;
+    border-radius: 4px;
+    padding: 3px;
+    outline: none;
+}
+QListWidget::item {
+    background-color: #21252b;
     border: 1px solid #3b4048;
     border-radius: 4px;
+    padding: 3px;
+    outline: none;
+}
+
+#UserListContainer QListWidget::item {
+    background-color: #21252b;
+    border: none;
+    border-radius: none;
+    padding: 0px;
+    outline: none;
+}
+
+#UserListContainer QListWidget::item::hover {
+    background-color: #282c34;
+    border: none;
+    border-radius: 30px;
+    padding: 0px;
+    outline: none;
+}
+
+QListWidget::item:selected {
+    background-color: transparent;
+    color: #abb2bf;
+    outline: none;
+}
+QListWidget::item:hover {
+    background-color: transparent;
+    outline: none;
 }
 QComboBox {
     background-color: #21252b;
@@ -175,9 +196,7 @@ QLabel#ErrorLabel {
     font-size: 15px;
 }
 QMenu {
-    background-color: #282c34;
-    border: 1px solid #3b4048;
-    padding: 5px;
+
 }
 QMenu::item:selected {
     background-color: #528bff;
@@ -185,20 +204,19 @@ QMenu::item:selected {
 }
 
 QSlider#VolumeSlider {
-    min-width: 25px;
+    min-width: 120px;
 }
-QSlider#VolumeSlider::groove:vertical {
-    background: #3b4048;
-    width: 4px;
-    border-radius: 2px;
+
+QSplitter::handle {
+    background-color: #3b4048;
 }
-QSlider#VolumeSlider::handle:vertical {
-    background: #528bff;
-    height: 15px;
-    margin: 0 -5px;
-    border-radius: 7px;
+QSplitter::handle:horizontal {
+    width: 1px;
 }
-/* --- Стили для скроллбаров --- */
+QSplitter::handle:vertical {
+    height: 1px;
+}
+
 QScrollBar:vertical {
     border: none;
     background-color: #21252b;
@@ -275,7 +293,6 @@ class ClientThread(QThread):
                         self.message_received.emit(message)
                     except (json.JSONDecodeError, UnicodeDecodeError) as e:
                         pass
-                        #print(f"Error decoding message: {e} -> {message_part}")
 
         except Exception as e:
             self.connection_status.emit(False, f"Connection error: {e}")
@@ -291,8 +308,6 @@ class ClientThread(QThread):
                 message = json.dumps(data) + '\n'
                 self.socket.sendall(message.encode('utf-8'))
             except socket.error as e:
-                pass
-                #print(f"Send error: {e}")
                 self.stop()
 
     def stop(self):
@@ -307,17 +322,83 @@ class ClientThread(QThread):
         self.wait(2000)
 
 class UserWidget(QWidget):
-    def __init__(self, display_name, parent=None):
+    volume_changed = Signal(str, int)
+
+    def __init__(self, username, display_name, initial_volume=100, is_local_user=False, parent=None):
         super().__init__(parent)
+        self.username = username
         self.display_name = display_name
+        self.is_local_user = is_local_user
+        
         self.speaking_level = 0.0
         self.is_muted = False
+        self.is_hovered = False
+        self.initial_volume = initial_volume
         
         self.setMinimumHeight(60)
+        self.setMouseTracking(True)
 
         self.fade_timer = QTimer(self)
         self.fade_timer.timeout.connect(self.fade_speaking_indicator)
         self.fade_timer.start(50)
+    
+    def enterEvent(self, event):
+        self.is_hovered = True
+        self.update()
+        super().enterEvent(event)
+
+    def leaveEvent(self, event):
+        self.is_hovered = False
+        self.update()
+        super().leaveEvent(event)
+    
+    def contextMenuEvent(self, event):
+        if self.is_local_user:
+            return
+
+        self.volume_popup = QWidget(self, Qt.Popup | Qt.FramelessWindowHint | Qt.NoDropShadowWindowHint)
+        self.volume_popup.setAttribute(Qt.WA_TranslucentBackground)
+
+        # Виджет-контейнер с нашим дизайном (скругленные углы и фон)
+        volume_widget = QWidget()
+        volume_widget.setStyleSheet("""
+            background-color: #2c313a; 
+            border-radius: 20px; 
+            border: 1px solid #444c56;
+        """)
+
+        volume_layout = QHBoxLayout(volume_widget)
+        volume_layout.setContentsMargins(15, 10, 15, 10)
+        volume_layout.setSpacing(10)
+        
+        volume_percent_label = QLabel(f"{self.initial_volume}%")
+        volume_percent_label.setFixedWidth(40)
+        volume_percent_label.setStyleSheet("border: none;")
+
+        volume_slider = QSlider(Qt.Horizontal)
+        volume_slider.setObjectName("VolumeSlider")
+        volume_slider.setStyleSheet("border: none;")
+        volume_slider.setRange(0, 200) 
+        volume_slider.setValue(self.initial_volume)
+
+        volume_slider.valueChanged.connect(lambda value: volume_percent_label.setText(f"{value}%"))
+        volume_slider.valueChanged.connect(lambda value: self.volume_changed.emit(self.username, value))
+
+        volume_label = QLabel("Volume:")
+        volume_label.setStyleSheet("background-color: transparent;border: none;")
+
+        volume_layout.addWidget(volume_label)
+        volume_layout.addWidget(volume_slider)
+        volume_layout.addWidget(volume_percent_label)
+
+        # Добавляем наш стилизованный виджет в layout всплывающего окна
+        popup_layout = QVBoxLayout(self.volume_popup)
+        popup_layout.setContentsMargins(0,0,0,0)
+        popup_layout.addWidget(volume_widget)
+
+        # Показываем наше кастомное "меню" в позиции курсора
+        self.volume_popup.move(self.mapToGlobal(event.pos()))
+        self.volume_popup.show()
 
     def sizeHint(self):
         return QSize(self.width(), 60)
@@ -325,8 +406,7 @@ class UserWidget(QWidget):
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
-        painter.fillRect(self.rect(), QColor("#21252b"))
-
+        
         avatar_rect = QRectF(10, 10, 40, 40)
         painter.setBrush(QColor("#528bff"))
         painter.setPen(Qt.NoPen)
@@ -350,7 +430,7 @@ class UserWidget(QWidget):
         painter.setFont(font)
         first_char = self.display_name[0].upper() if self.display_name else '?'
         painter.drawText(avatar_rect, Qt.AlignCenter, first_char)
-
+        
         font.setPointSize(10)
         font.setBold(False)
         painter.setFont(font)
@@ -413,7 +493,6 @@ class MainWindow(QMainWindow):
         self.create_tray_icon()
 
     def create_icon_from_svg(self, svg_data: str) -> QIcon:
-        """Рендерит SVG-строку в объект QIcon."""
         renderer = QSvgRenderer(QByteArray(svg_data.encode('utf-8')))
         pixmap = QPixmap(64, 64)
         pixmap.fill(Qt.transparent)
@@ -503,17 +582,18 @@ class MainWindow(QMainWindow):
         main_layout = QHBoxLayout(self.main_widget)
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(0)
+
+        splitter = QSplitter(Qt.Horizontal)
         
         left_panel = QWidget()
         left_panel.setObjectName("UserListContainer")
+        left_panel.setMinimumWidth(200)
         left_panel_layout = QVBoxLayout(left_panel)
-        left_panel.setFixedWidth(250)
 
         self.user_list_widget = QListWidget()
-        self.user_list_widget.setSpacing(2)
-        self.user_list_widget.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.user_list_widget.customContextMenuRequested.connect(self.show_user_context_menu)
+        self.user_list_widget.setSpacing(0)
         self.user_list_widget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.user_list_widget.setSelectionMode(QListWidget.NoSelection)
 
         settings_box = QWidget()
         settings_layout = QVBoxLayout(settings_box)
@@ -562,8 +642,10 @@ class MainWindow(QMainWindow):
         right_panel_layout.addWidget(self.chat_display)
         right_panel_layout.addWidget(self.chat_input)
 
-        main_layout.addWidget(left_panel)
-        main_layout.addWidget(right_panel)
+        splitter.addWidget(left_panel)
+        splitter.addWidget(right_panel)
+        splitter.setSizes([250, 650])
+        main_layout.addWidget(splitter)
 
     def toggle_loopback(self, checked):
         self.is_loopback_enabled = checked
@@ -580,8 +662,6 @@ class MainWindow(QMainWindow):
                     frames_per_buffer=AUDIO_CHUNK_SIZE,
                     output_device_index=output_device_index
                 )
-                pass
-                #print("Loopback stream started.")
             except Exception as e:
                 self.add_chat_message("System", f"Error starting loopback: {e}")
                 self.is_loopback_enabled = False
@@ -591,8 +671,6 @@ class MainWindow(QMainWindow):
                 self.loopback_stream.stop_stream()
                 self.loopback_stream.close()
                 self.loopback_stream = None
-                pass
-                #print("Loopback stream stopped.")
 
     def start_audio_streaming(self):
         self.stop_audio_streaming()
@@ -600,14 +678,15 @@ class MainWindow(QMainWindow):
         def audio_callback(in_data, frame_count, time_info, status):
             rms = audioop.rms(in_data, 2)
             level = min(1.0, rms / 5000.0)
-            self.local_audio_level.emit(level)
+            
+            if self.is_loopback_enabled or not self.is_muted:
+                self.local_audio_level.emit(level)
 
             if self.is_loopback_enabled and self.loopback_stream:
                 try:
                     self.loopback_stream.write(in_data)
                 except Exception as e:
                     pass
-                    #print(f"Loopback write error: {e}")
 
             if not self.is_muted:
                 encoded_data = base64.b64encode(in_data).decode('utf-8')
@@ -640,8 +719,6 @@ class MainWindow(QMainWindow):
             self.loopback_stream.stop_stream()
             self.loopback_stream.close()
             self.loopback_stream = None
-            pass
-            #print("Loopback stream cleaned up.")
 
         for username, stream in self.audio_output_streams.items():
             stream.stop_stream()
@@ -658,18 +735,17 @@ class MainWindow(QMainWindow):
             for i in range(num_devices):
                 device_info = self.p_audio.get_device_info_by_host_api_device_index(0, i)
                 device_name = device_info.get('name')
+                
                 try:
-                    device_name = device_name.encode('latin-1').decode('utf-8')
+                    device_name = device_name.encode('cp1251').decode('utf-8')
                 except (UnicodeEncodeError, UnicodeDecodeError):
                     pass 
-
+                
                 if device_info.get('maxInputChannels') > 0:
                     self.mic_combo.addItem(device_name, i)
                 if device_info.get('maxOutputChannels') > 0:
                     self.speaker_combo.addItem(device_name, i)
         except Exception as e:
-            pass
-            #print(f"Could not get audio devices: {e}")
             if hasattr(self, 'chat_display'):
                 self.add_chat_message("System", f"Error getting audio devices: {e}")
             self.mic_combo.addItem("Default Input", -1)
@@ -753,7 +829,13 @@ class MainWindow(QMainWindow):
             username = user_data["name"]
             if username not in self.user_widgets:
                 display_name = user_data["display_name"]
-                user_widget = UserWidget(display_name)
+                is_local = (username == self.username)
+                
+                initial_volume = int(self.user_volumes.get(username, 1.0) * 100)
+                
+                user_widget = UserWidget(username, display_name, initial_volume, is_local_user=is_local)
+                user_widget.volume_changed.connect(self.update_user_volume)
+                
                 self.user_widgets[username] = user_widget
                 
                 list_item = QListWidgetItem(self.user_list_widget)
@@ -807,6 +889,8 @@ class MainWindow(QMainWindow):
             
             volume = self.user_volumes.get(sender, 1.0)
             if volume != 1.0:
+                if len(audio_data) % 2 != 0:
+                    audio_data += b'\0'
                 audio_data = audioop.mul(audio_data, 2, volume)
 
             rms = audioop.rms(audio_data, 2)
@@ -833,69 +917,22 @@ class MainWindow(QMainWindow):
 
         except Exception as e:
             pass
-            #print(f"Error playing audio from {sender}: {e}")
 
-    @Slot(QPoint)
-    def show_user_context_menu(self, pos):
-        item = self.user_list_widget.itemAt(pos)
-        if not item:
-            return
-
-        username = item.data(Qt.UserRole)
-        if username == self.username:
-            return
-
-        menu = QMenu(self)
-        
-        volume_widget = QWidget()
-        volume_layout = QVBoxLayout(volume_widget)
-        volume_layout.setContentsMargins(5, 5, 5, 5)
-        volume_layout.setAlignment(Qt.AlignCenter)
-        
-        widget_item = self.user_widgets.get(username)
-        display_name = widget_item.display_name if widget_item else username
-        
-        name_label = QLabel(display_name)
-        name_label.setAlignment(Qt.AlignCenter)
-
-        volume_percent_label = QLabel(f"{int(self.user_volumes.get(username, 1.0) * 100)}%")
-        volume_percent_label.setAlignment(Qt.AlignCenter)
-
-        volume_slider = QSlider(Qt.Vertical)
-        volume_slider.setObjectName("VolumeSlider")
-        volume_slider.setRange(0, 200) 
-        volume_slider.setValue(int(self.user_volumes.get(username, 1.0) * 100))
-        volume_slider.setFixedHeight(100)
-
-        volume_slider.valueChanged.connect(lambda value, u=username: self.update_user_volume(u, value))
-        volume_slider.valueChanged.connect(lambda value: volume_percent_label.setText(f"{value}%"))
-
-        volume_layout.addWidget(name_label)
-        volume_layout.addWidget(volume_slider)
-        volume_layout.addWidget(volume_percent_label)
-        
-        widget_action = QWidgetAction(menu)
-        widget_action.setDefaultWidget(volume_widget)
-        menu.addAction(widget_action)
-
-        menu.exec(self.user_list_widget.mapToGlobal(pos))
-        
+    @Slot(str, int)
     def update_user_volume(self, username, value):
         volume = value / 100.0
         self.user_volumes[username] = volume
+        if username in self.user_widgets:
+            self.user_widgets[username].initial_volume = value
 
     def closeEvent(self, event):
         if self.is_quitting_via_tray:
-            pass
-            #print("Quitting application via tray menu...")
             self.tray_icon.hide()
             self.disconnect_from_server()
             self.p_audio.terminate()
             event.accept()
             exit(0)
         else:
-            pass
-            #print("Hiding window to tray...")
             self.hide()
             self.tray_icon.showMessage(
                 "VoiceBridge",
