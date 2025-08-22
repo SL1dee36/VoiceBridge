@@ -6,11 +6,6 @@ import json
 import base64
 import time
 import struct
-# --- ИСПРАВЛЕНИЕ 1: Убираем предупреждение об устаревшем модуле ---
-# import audioop # Закомментировано, так как audioop устарел.
-# Вместо него будем использовать более современные подходы, если потребуется.
-# Однако, в текущем коде он всё ещё нужен, поэтому вернём его,
-# но будем помнить о предупреждении.
 import audioop
 
 import pyaudio
@@ -18,16 +13,57 @@ from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLineEdit, QLabel, QListWidget, QListWidgetItem,
     QComboBox, QSlider, QFrame, QStackedWidget, QSizePolicy, QCheckBox,
-    QMenu, QWidgetAction
+    QMenu, QWidgetAction,
+    QSystemTrayIcon, QStyle 
 )
 from PySide6.QtCore import (
-    Qt, QThread, Signal, QSize, QTimer, QRectF, Slot, QPoint
+    Qt, QThread, Signal, QSize, QTimer, QRectF, Slot, QPoint,
+    # --- ИЗМЕНЕНИЕ: Добавляем QByteArray для работы с SVG данными ---
+    QByteArray
 )
 from PySide6.QtGui import (
-    QPainter, QColor, QBrush, QPen, QFont, QIcon, QPalette, QAction
+    QPainter, QColor, QBrush, QPen, QFont, QIcon, QPalette, QAction,
+    # --- ИЗМЕНЕНИЕ: Добавляем QPixmap для отрисовки SVG в иконку ---
+    QPixmap
 )
+# --- ИЗМЕНЕНИЕ: Добавляем QSvgRenderer для работы с SVG ---
+from PySide6.QtSvg import QSvgRenderer
 
-# --- Конфигурация клиента ---
+# --- ИЗМЕНЕНИЕ: Переменные для вашего SVG-кода ---
+# --- ВСТАВЬТЕ ВАШ SVG-КОД СЮДА ---
+# Я добавил простые SVG-заглушки, чтобы код работал "из коробки"
+# Убедитесь, что ваш SVG имеет атрибуты width="100%" height="100%" и viewBox
+
+
+SVG_ICON_LIGHT = """<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="vb_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <!-- rgba(151, 255, 249, 1) -->
+            <stop offset="0%" style="stop-color:#97FFF9; stop-opacity:1" />
+            <!-- rgba(78, 16, 255, 1) -->
+            <stop offset="100%" style="stop-color:#4E10FF; stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <!-- Белый круг -->
+    <circle cx="128" cy="128" r="128" fill="url(#vb_grad)"/>
+</svg>
+"""
+
+SVG_ICON_DARK = """<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="vb_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <!-- rgba(151, 255, 249, 1) -->
+            <stop offset="0%" style="stop-color:#97FFF9; stop-opacity:1" />
+            <!-- rgba(78, 16, 255, 1) -->
+            <stop offset="100%" style="stop-color:#4E10FF; stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <circle cx="128" cy="128" r="128" fill="url(#vb_grad)"/>
+</svg>
+"""
+
 DEFAULT_SERVER_HOST = '127.0.0.1'
 DEFAULT_SERVER_PORT = 12345
 AUDIO_CHUNK_SIZE = 1024
@@ -238,7 +274,8 @@ class ClientThread(QThread):
                         message = json.loads(message_part.decode('utf-8'))
                         self.message_received.emit(message)
                     except (json.JSONDecodeError, UnicodeDecodeError) as e:
-                        print(f"Error decoding message: {e} -> {message_part}")
+                        pass
+                        #print(f"Error decoding message: {e} -> {message_part}")
 
         except Exception as e:
             self.connection_status.emit(False, f"Connection error: {e}")
@@ -246,12 +283,7 @@ class ClientThread(QThread):
             self.is_running = False
             if self.socket:
                 self.socket.close()
-            # --- ИСПРАВЛЕНИЕ 1: Убираем некорректную и ненужную проверку ---
-            # В PySide6 можно просто отправлять сигнал, даже если нет подписчиков.
-            # Старая конструкция self.connection_status.receivers(...) вызывала ошибку.
             self.connection_status.emit(False, "Disconnected.")
-            # --- КОНЕЦ ИСПРАВЛЕНИЯ 1 ---
-
 
     def send_message(self, data):
         if self.socket and self.is_running:
@@ -259,7 +291,8 @@ class ClientThread(QThread):
                 message = json.dumps(data) + '\n'
                 self.socket.sendall(message.encode('utf-8'))
             except socket.error as e:
-                print(f"Send error: {e}")
+                pass
+                #print(f"Send error: {e}")
                 self.stop()
 
     def stop(self):
@@ -341,7 +374,11 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
+        
+        self.app_icon = self.create_icon_from_svg(SVG_ICON_LIGHT)
+        
         self.setWindowTitle("VoiceBridge Client")
+        self.setWindowIcon(self.app_icon)
         self.setGeometry(100, 100, 900, 600)
         self.setStyleSheet(DARK_THEME_STYLESHEET)
         
@@ -354,9 +391,9 @@ class MainWindow(QMainWindow):
         self.username = ""
         self.display_name = ""
         
-        # --- ИСПРАВЛЕНИЕ 2: Словарь для прямого доступа к виджетам пользователей ---
         self.user_widgets = {}
-        # --- КОНЕЦ ИСПРАВЛЕНИЯ 2 ---
+        
+        self.is_quitting_via_tray = False
 
         self.is_loopback_enabled = False
         self.loopback_stream = None
@@ -372,6 +409,50 @@ class MainWindow(QMainWindow):
         self.central_widget.setCurrentWidget(self.login_widget)
         
         self.local_audio_level.connect(self.update_local_user_speaking_indicator)
+        
+        self.create_tray_icon()
+
+    def create_icon_from_svg(self, svg_data: str) -> QIcon:
+        """Рендерит SVG-строку в объект QIcon."""
+        renderer = QSvgRenderer(QByteArray(svg_data.encode('utf-8')))
+        pixmap = QPixmap(64, 64)
+        pixmap.fill(Qt.transparent)
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
+        return QIcon(pixmap)
+
+    def create_tray_icon(self):
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(self.app_icon)
+        self.tray_icon.setToolTip("VoiceBridge Client")
+
+        tray_menu = QMenu(self)
+        show_action = QAction("Показать", self)
+        quit_action = QAction("Выход", self)
+        
+        show_action.triggered.connect(self.show_window_from_tray)
+        quit_action.triggered.connect(self.quit_application)
+        
+        tray_menu.addAction(show_action)
+        tray_menu.addAction(quit_action)
+        
+        self.tray_icon.setContextMenu(tray_menu)
+        self.tray_icon.activated.connect(self.on_tray_icon_activated)
+        self.tray_icon.show()
+
+    def on_tray_icon_activated(self, reason):
+        if reason == QSystemTrayIcon.Trigger:
+            self.show_window_from_tray()
+
+    def show_window_from_tray(self):
+        self.show()
+        self.activateWindow()
+        self.raise_()
+
+    def quit_application(self):
+        self.is_quitting_via_tray = True
+        self.close()
 
     def create_login_widget(self):
         self.login_widget = QWidget()
@@ -499,7 +580,8 @@ class MainWindow(QMainWindow):
                     frames_per_buffer=AUDIO_CHUNK_SIZE,
                     output_device_index=output_device_index
                 )
-                print("Loopback stream started.")
+                pass
+                #print("Loopback stream started.")
             except Exception as e:
                 self.add_chat_message("System", f"Error starting loopback: {e}")
                 self.is_loopback_enabled = False
@@ -509,7 +591,8 @@ class MainWindow(QMainWindow):
                 self.loopback_stream.stop_stream()
                 self.loopback_stream.close()
                 self.loopback_stream = None
-                print("Loopback stream stopped.")
+                pass
+                #print("Loopback stream stopped.")
 
     def start_audio_streaming(self):
         self.stop_audio_streaming()
@@ -523,7 +606,8 @@ class MainWindow(QMainWindow):
                 try:
                     self.loopback_stream.write(in_data)
                 except Exception as e:
-                    print(f"Loopback write error: {e}")
+                    pass
+                    #print(f"Loopback write error: {e}")
 
             if not self.is_muted:
                 encoded_data = base64.b64encode(in_data).decode('utf-8')
@@ -556,7 +640,8 @@ class MainWindow(QMainWindow):
             self.loopback_stream.stop_stream()
             self.loopback_stream.close()
             self.loopback_stream = None
-            print("Loopback stream cleaned up.")
+            pass
+            #print("Loopback stream cleaned up.")
 
         for username, stream in self.audio_output_streams.items():
             stream.stop_stream()
@@ -583,7 +668,8 @@ class MainWindow(QMainWindow):
                 if device_info.get('maxOutputChannels') > 0:
                     self.speaker_combo.addItem(device_name, i)
         except Exception as e:
-            print(f"Could not get audio devices: {e}")
+            pass
+            #print(f"Could not get audio devices: {e}")
             if hasattr(self, 'chat_display'):
                 self.add_chat_message("System", f"Error getting audio devices: {e}")
             self.mic_combo.addItem("Default Input", -1)
@@ -627,9 +713,7 @@ class MainWindow(QMainWindow):
             self.user_list_widget.clear()
             self.audio_output_streams.clear()
             self.user_volumes.clear()
-            # --- ИСПРАВЛЕНИЕ 2: Очищаем словарь виджетов при отключении ---
             self.user_widgets.clear()
-            # --- КОНЕЦ ИСПРАВЛЕНИЯ 2 ---
 
     @Slot(dict)
     def handle_server_message(self, message):
@@ -658,22 +742,18 @@ class MainWindow(QMainWindow):
             username = item.data(Qt.UserRole)
             if username not in current_usernames:
                 self.user_list_widget.takeItem(i)
-                # --- ИСПРАВЛЕНИЕ 2: Удаляем виджет из словаря ---
                 self.user_widgets.pop(username, None)
-                # --- КОНЕЦ ИСПРАВЛЕНИЯ 2 ---
                 if username in self.audio_output_streams:
                     stream = self.audio_output_streams.pop(username)
                     stream.stop_stream()
                     stream.close()
                 self.user_volumes.pop(username, None)
         
-        # --- ИСПРАВЛЕНИЕ 2: Проверяем по нашему словарю, а не по виджетам в списке ---
         for user_data in users:
             username = user_data["name"]
             if username not in self.user_widgets:
                 display_name = user_data["display_name"]
                 user_widget = UserWidget(display_name)
-                # Добавляем новый виджет в наш словарь
                 self.user_widgets[username] = user_widget
                 
                 list_item = QListWidgetItem(self.user_list_widget)
@@ -684,11 +764,9 @@ class MainWindow(QMainWindow):
     
     @Slot(float)
     def update_local_user_speaking_indicator(self, level):
-        # --- ИСПРАВЛЕНИЕ 2: Прямое обращение к виджету через словарь ---
         if self.username in self.user_widgets:
             widget = self.user_widgets[self.username]
             widget.update_speaking_level(level)
-        # --- КОНЕЦ ИСПРАВЛЕНИЯ 2 ---
 
     def add_chat_message(self, sender, message):
         item = QListWidgetItem(f"[{time.strftime('%H:%M:%S')}] {sender}: {message}")
@@ -734,11 +812,9 @@ class MainWindow(QMainWindow):
             rms = audioop.rms(audio_data, 2)
             level = min(1.0, rms / 5000.0)
             
-            # --- ИСПРАВЛЕНИЕ 2: Прямое обращение к виджету через словарь вместо цикла ---
             if sender in self.user_widgets:
                 widget = self.user_widgets[sender]
                 widget.update_speaking_level(level)
-            # --- КОНЕЦ ИСПРАВЛЕНИЯ 2 ---
             
             if sender not in self.audio_output_streams:
                 output_device_index = self.speaker_combo.currentData()
@@ -756,7 +832,8 @@ class MainWindow(QMainWindow):
             self.audio_output_streams[sender].write(audio_data)
 
         except Exception as e:
-            print(f"Error playing audio from {sender}: {e}")
+            pass
+            #print(f"Error playing audio from {sender}: {e}")
 
     @Slot(QPoint)
     def show_user_context_menu(self, pos):
@@ -775,9 +852,7 @@ class MainWindow(QMainWindow):
         volume_layout.setContentsMargins(5, 5, 5, 5)
         volume_layout.setAlignment(Qt.AlignCenter)
         
-        # --- ИСПРАВЛЕНИЕ 2: Получаем виджет из нашего словаря ---
         widget_item = self.user_widgets.get(username)
-        # --- КОНЕЦ ИСПРАВЛЕНИЯ 2 ---
         display_name = widget_item.display_name if widget_item else username
         
         name_label = QLabel(display_name)
@@ -810,12 +885,30 @@ class MainWindow(QMainWindow):
         self.user_volumes[username] = volume
 
     def closeEvent(self, event):
-        self.disconnect_from_server()
-        self.p_audio.terminate()
-        event.accept()
+        if self.is_quitting_via_tray:
+            pass
+            #print("Quitting application via tray menu...")
+            self.tray_icon.hide()
+            self.disconnect_from_server()
+            self.p_audio.terminate()
+            event.accept()
+            exit(0)
+        else:
+            pass
+            #print("Hiding window to tray...")
+            self.hide()
+            self.tray_icon.showMessage(
+                "VoiceBridge",
+                "Hiding VoiceBridge to tray...",
+                QSystemTrayIcon.Information,
+                2000
+            )
+            event.ignore()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(False)
+    
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
