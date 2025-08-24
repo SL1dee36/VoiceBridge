@@ -83,9 +83,9 @@ class StyleManager:
 """
 
     DARK_THEME_STYLESHEET = """
-QWidget { background-color: #21252b; color: #abb2bf; font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; } 
+QWidget { background-color: #1e2228; color: #abb2bf; font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; } 
 QMainWindow { background-color: #1e2228; } 
-#LoginWidget, #MainWidget, #HomeWidget { background-color: #21252b; } 
+#LoginWidget, #MainWidget, #HomeWidget { background-color: #1e2228; } 
 QLineEdit { background-color: #2c313a; border: 1px solid #3b4048; border-radius: 4px; padding: 5px; } 
 QLineEdit:focus { border-color: #528bff; } 
 QPushButton { background-color: #528bff; color: #ffffff; border: none; padding: 8px 16px; border-radius: 4px; } 
@@ -97,13 +97,13 @@ QPushButton#HostButton:pressed { background-color: #4178df; }
 #MuteButton[muted=\"true\"] { background-color: #da3633; } 
 #MuteButton[muted=\"true\"]:hover { background-color: #f85149; } 
 QListWidget { background-color: #2c313a; border: 1px solid #3b4048; border-radius: 4px; padding: 3px; outline: none; } 
-QListWidget#UserList { background-color: #21252b; border: none; }
-QListWidget#UserList::item { background-color: #21252b; border: 1px solid #3b4048; border-radius: 4px; padding: 3px; outline: none; } 
-#UserListContainer QListWidget#UserList::item { background-color: #21252b; border: none; border-radius: none; padding: 0px; outline: none; } 
+QListWidget#UserList { background-color: #1e2228; border: none; }
+QListWidget#UserList::item { background-color: #1e2228; border: 1px solid #3b4048; border-radius: 4px; padding: 3px; outline: none; } 
+#UserListContainer QListWidget#UserList::item { background-color: #1e2228; border: none; border-radius: none; padding: 0px; outline: none; } 
 #UserListContainer QListWidget#UserList::item::hover { background-color: #282c34; border: none; border-radius: 30px; padding: 0px; outline: none; } 
-QListWidget::item:selected { background-color: #528bff; color: #ffffff; } 
+QListWidget::item:pressed { background-color: #528bff; color: #ffffff; } 
 QListWidget::item:hover { background-color: #3b4048; } 
-QComboBox { background-color: #21252b; border: 1px solid #3b4048; border-radius: 4px; padding: 5px; } 
+QComboBox { background-color: #1e2228; border: 1px solid #3b4048; border-radius: 4px; padding: 5px; } 
 QComboBox::drop-down { border: none; } 
 QCheckBox { spacing: 5px; } 
 QCheckBox::indicator { width: 13px; height: 13px; border: 1px solid #3b4048; border-radius: 2px; } 
@@ -122,11 +122,11 @@ QSlider#VolumeSlider { min-width: 120px; }
 QSplitter::handle { background-color: #3b4048; } 
 QSplitter::handle:horizontal { width: 1px; } 
 QSplitter::handle:vertical { height: 1px; } 
-QScrollBar:vertical { border: none; background-color: #21252b; width: 8px; margin: 0px 0px 0px 0px; } 
+QScrollBar:vertical { border: none; background-color: #1e2228; width: 8px; margin: 0px 0px 0px 0px; } 
 QScrollBar::handle:vertical { background-color: #528bff; min-height: 20px; border-radius: 4px; } 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { border: none; background: none; height: 0px; } 
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: none; } 
-QScrollBar:horizontal { border: none; background-color: #21252b; height: 8px; margin: 0px 0px 0px 0px; } 
+QScrollBar:horizontal { border: none; background-color: #1e2228; height: 8px; margin: 0px 0px 0px 0px; } 
 QScrollBar::handle:horizontal { background-color: #528bff; min-width: 20px; border-radius: 4px; } 
 QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { border: none; background: none; width: 0px; } 
 QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: none; }"""
@@ -576,7 +576,9 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(self.app_icon)
         self.setGeometry(100, 100, 950, 650)
         self.setStyleSheet(StyleManager.DARK_THEME_STYLESHEET)
-        
+
+        self._apply_native_theme_tweaks()
+
         self.client_thread = None
         self.server_thread = None
         self.hosted_address = None
@@ -605,6 +607,48 @@ class MainWindow(QMainWindow):
         self.create_tray_icon()
         
         self.show_home_screen()
+    
+    def _apply_native_theme_tweaks(self):
+        """
+        Применяет специфичные для ОС настройки для лучшей интеграции темной темы.
+        """
+        # --- Windows ---
+        # Для Windows 10/11 используем WinAPI, чтобы принудительно включить темный заголовок.
+        if sys.platform == 'win32':
+            try:
+                # Импорты нужны только для Windows
+                import ctypes
+                from ctypes import wintypes
+                
+                hwnd = self.winId()
+                DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+                value = ctypes.c_int(1)
+                ctypes.windll.dwmapi.DwmSetWindowAttribute(
+                    wintypes.HWND(hwnd),
+                    wintypes.DWORD(DWMWA_USE_IMMERSIVE_DARK_MODE),
+                    ctypes.byref(value),
+                    ctypes.sizeof(value)
+                )
+            except (AttributeError, OSError, ImportError) as e:
+                print(f"Could not set dark title bar on Windows: {e}")
+        
+        # --- macOS ---
+        # Для macOS включаем современный стиль окна, который хорошо работает с темной темой.
+        elif sys.platform == 'darwin':
+            try:
+                # Этот атрибут сливает заголовок и панель инструментов, 
+                # что позволяет macOS лучше управлять цветом окна в темном режиме.
+                self.setUnifiedTitleAndToolBarOnMac(True)
+            except AttributeError:
+                # Эта опция может отсутствовать в очень старых версиях Qt/PySide
+                pass
+
+        # --- Linux ---
+        # Для Linux ничего делать не нужно. Приложение должно уважать
+        # системную тему, установленную пользователем в настройках Desktop Environment (GNOME, KDE и т.д.).
+        # Попытка принудительно что-то изменить будет плохой практикой.
+        else:
+            pass
 
     def create_icon_from_svg(self, svg_data: str) -> QIcon:
         renderer = QSvgRenderer(QByteArray(svg_data.encode('utf-8')))
@@ -669,30 +713,35 @@ class MainWindow(QMainWindow):
 
         # title_label = QLabel("VoiceBridge v1.3.0", objectName="TitleLabel", alignment=Qt.AlignCenter)
 
-        self.name_input = QLineEdit(placeholderText="Enter your name (3-20 characters)")
+        self.name_input = QLineEdit(placeholderText="Enter your name (1-30 characters)")
         self.name_input.setText(self.config_manager.get_display_name())
-        # self.name_input.setStyleSheet("QLineEdit { border-radius: 16px; }")
-        self.name_input.setStyleSheet("QLineEdit { outline: none; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }")
+        self.name_input.setStyleSheet("QLineEdit { border-radius: 16px; }")
+        # self.name_input.setStyleSheet("QLineEdit { outline: none; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }")
         self.name_input.textChanged.connect(self.config_manager.set_display_name)
         
         self.host_button = QPushButton("Host New Channel", objectName="HostButton")
-        # self.host_button.setStyleSheet("QPushButton { border-radius: 16px; width: 100px; height: 16px; }")
-        self.host_button.setStyleSheet("QPushButton { outline: none; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; width: 100px; height: 16px; }")
+        self.host_button.setStyleSheet("QPushButton { border-radius: 16px; width: 100px; height: 16px; }")
+        # self.host_button.setStyleSheet("QPushButton { outline: none; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; width: 100px; height: 16px; }")
         self.host_button.clicked.connect(self.start_hosting)
         
         self.server_info_label = QLabel("", objectName="InfoLabel", alignment=Qt.AlignCenter)
         self.server_info_label.setTextInteractionFlags(Qt.TextSelectableByMouse)
 
         separator = QFrame()
-        # separator.setFrameShape(QFrame.HLine)
-        # separator.setFrameShadow(QFrame.Plain)
+        separator.setFrameShape(QFrame.HLine)
+        separator.setFrameShadow(QFrame.Plain)
 
         self.channels_list = QListWidget()
         self.channels_list.setContextMenuPolicy(Qt.CustomContextMenu)
         self.channels_list.customContextMenuRequested.connect(self.show_channel_context_menu)
         self.channels_list.itemDoubleClicked.connect(self.join_selected_channel)
-        self.channels_list.setStyleSheet("QListWidget { outline: none; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }")
-
+        self.channels_list.setStyleSheet("""
+                                         QListWidget { outline: none; border-radius: 16px; } 
+                                         QListWidget::item { border-radius: 10px; padding: 0px 8px 0px 8px; } 
+                                         QListWidget::item:selected { border: 1px solid #528bff; padding: 0px 7px 0px 7px; color: #fff; }
+                                         QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal, QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { border: none; background: none; width: 0px; background-color: #2c313a; padding: 0px 8px 0px 8px; } 
+                                         QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal, QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: none; background-color: #2c313a; }""")
+        
         join_layout = QHBoxLayout()
         self.join_address_input = QLineEdit(placeholderText="channel.name:12345 or IP:PORT")
         self.join_address_input.setStyleSheet("QLineEdit { outline: none; border-radius: 16px; }")
@@ -702,22 +751,19 @@ class MainWindow(QMainWindow):
         join_layout.addWidget(self.join_address_input)
         join_layout.addWidget(self.join_button)
         
-        self.home_error_label = QLabel("", objectName="ErrorLabel", alignment=Qt.AlignCenter)
+                                    # <error_message>
+        self.home_error_label = QLabel("", objectName="ErrorLabel", alignment=(Qt.AlignBottom | Qt.AlignHCenter))
+        self.home_error_label.setStyleSheet("QLabel { color: red; outline: none; max-width: 460px; }")
 
-        self.version_label = QLabel("Version 1.3.0 x64", objectName="VersionLabel", alignment=(Qt.AlignBottom | Qt.AlignHCenter))
+        self.version_label = QLabel("Version 1.3.1 x64", objectName="VersionLabel", alignment=(Qt.AlignBottom | Qt.AlignHCenter))
         self.version_label.setStyleSheet("QLabel { color: gray; outline: none; }")
 
-        # form_layout.addWidget(title_label)
-        form_layout.addSpacing(20)
         form_layout.addWidget(QLabel("Your Name:"))
         form_layout.addWidget(self.name_input)
-        form_layout.addSpacing(2)
-        form_layout.addWidget(self.host_button)
         # form_layout.addWidget(self.server_info_label)
-        # form_layout.addSpacing(20)
-        form_layout.addWidget(separator)
         form_layout.addSpacing(10)
         form_layout.addWidget(QLabel("Saved Channels:"))
+        form_layout.addWidget(self.host_button)
         form_layout.addWidget(self.channels_list)
         form_layout.addLayout(join_layout)
         form_layout.addWidget(self.home_error_label)
@@ -856,7 +902,7 @@ class MainWindow(QMainWindow):
         self.server_info_label.setText(f"Hosting at: {address}")
 
         display_name = self.name_input.text().strip()
-        channel_name = f"{display_name}'s Channel"
+        channel_name = f"{display_name}"
         self.config_manager.add_channel(channel_name, address, channel_type="hosted")
         self.populate_saved_channels()
 
