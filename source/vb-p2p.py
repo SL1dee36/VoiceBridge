@@ -26,7 +26,7 @@ from PySide6.QtCore import (
 )
 from PySide6.QtGui import (
     QPainter, QColor, QBrush, QPen, QFont, QIcon, QPalette, QAction,
-    QPixmap, QPainterPath
+    QPixmap, QPainterPath, QFontMetricsF
 )
 from PySide6.QtSvg import QSvgRenderer
 
@@ -115,7 +115,7 @@ QMainWindow {{ background-color: {bg}; }}
 #LoginWidget, #MainWidget, #HomeWidget, #SettingsWidget {{ background-color: {bg}; }} 
 QLineEdit {{ background-color: #2c313a; border: 1px solid #3b4048; border-radius: {le_radius}px; padding: 5px; }} 
 QLineEdit:focus {{ border-color: {accent}; }} 
-QPushButton {{ background-color: {accent}; color: #ffffff; border: none; padding: 8px 16px; border-radius: {btn_radius}px; }} 
+QPushButton {{ background-color: {accent}; color: #ffffff; border: none; padding: 8px 16px; border-radius: {btn_radius}px; height: 16px; }} 
 QPushButton:hover {{ background-color: {accent_hover}; }} 
 QPushButton:pressed {{ background-color: {accent_pressed}; }} 
 QPushButton#HostButton {{ background-color: {accent}; }}
@@ -506,6 +506,7 @@ class UserWidget(QWidget):
 
     def __init__(self, username, display_name, initial_volume=100, is_local_user=False, parent=None):
         super().__init__(parent)
+        self.config_manager = ConfigManager()
         self.username = username
         self.display_name = display_name
         self.is_local_user = is_local_user
@@ -556,8 +557,7 @@ class UserWidget(QWidget):
         painter.setRenderHint(QPainter.Antialiasing)
         
         avatar_rect = QRectF(10, 10, 40, 40)
-        
-        accent_color = self.palette().button().color().name()
+        accent_color = self.config_manager.get_setting("accent_color", "#528bff")
         painter.setBrush(QColor(accent_color))
         painter.setPen(Qt.NoPen)
         painter.drawEllipse(avatar_rect)
@@ -574,12 +574,15 @@ class UserWidget(QWidget):
 
         painter.setPen(QColor("#ffffff"))
         font = self.font()
-        font.setPointSize(16)
+        font.setPointSize(18)
         font.setBold(True)
         painter.setFont(font)
         first_char = self.display_name[0].upper() if self.display_name else '?'
-        painter.drawText(avatar_rect, Qt.AlignCenter, first_char)
-        
+        corrected_avatar_rect = QRectF(avatar_rect) 
+        dx, dy = 0.5, -1.0
+        corrected_avatar_rect.translate(dx, dy)
+        painter.drawText(corrected_avatar_rect, Qt.AlignHCenter | Qt.AlignVCenter, first_char)
+
         font.setPointSize(10)
         font.setBold(False)
         painter.setFont(font)
@@ -793,7 +796,7 @@ class MainWindow(QMainWindow):
         join_layout = QHBoxLayout()
         self.join_address_input = QLineEdit(placeholderText="channel.name:12345 or IP:PORT")
         self.join_button = QPushButton("Join")
-        self.join_button.setStyleSheet("QPushButton { width: 100px; }")
+        self.join_button.setStyleSheet("QPushButton { width: 100px; height: 16px; }")
         self.join_button.clicked.connect(self.join_from_input)
         join_layout.addWidget(self.join_address_input)
         join_layout.addWidget(self.join_button)
@@ -869,7 +872,7 @@ class MainWindow(QMainWindow):
 
         self.loopback_checkbox = QCheckBox("Hear yourself (monitoring)")
         self.loopback_checkbox.toggled.connect(self.toggle_loopback)
-        self.mute_button = QPushButton("Mute", objectName="MuteButton", checkable=True)
+        self.mute_button = QPushButton("၊၊||၊", objectName="MuteButton", checkable=True)
         self.mute_button.setProperty("muted", "false")
         self.mute_button.toggled.connect(self.toggle_mute)
         self.disconnect_button = QPushButton("Disconnect")
@@ -883,8 +886,23 @@ class MainWindow(QMainWindow):
         settings_layout.addStretch()
         settings_layout.addWidget(self.loopback_checkbox)
         settings_layout.addSpacing(5)
-        settings_layout.addWidget(self.mute_button)
-        settings_layout.addWidget(self.disconnect_button)
+        buttons_container = QWidget()
+        buttons_container.setObjectName("ButtonsContainer")
+        buttons_layout = QHBoxLayout(buttons_container)
+        buttons_layout.setContentsMargins(5, 0, 5, 0)
+        buttons_layout.setSpacing(5)
+        buttons_layout.addWidget(self.mute_button, 1)
+        buttons_layout.addWidget(self.disconnect_button, 1)
+
+        container_height = 42
+        buttons_container.setFixedHeight(container_height)
+        buttons_container.setStyleSheet(f"""
+            #ButtonsContainer {{
+                background-color: rgba(80, 80, 90, 0.3);
+                border-radius: {container_height / 2}px;
+            }}
+        """)
+        settings_layout.addWidget(buttons_container)
         
         left_panel_layout.addWidget(self.user_list_widget, 1) 
         left_panel_layout.addWidget(settings_box, 0)
@@ -1278,7 +1296,7 @@ class MainWindow(QMainWindow):
             if self.is_loopback_enabled or not self.is_muted: 
                 self.local_audio_level.emit(level)
             if self.is_loopback_enabled and self.loopback_stream: 
-                self.loopback_stream.write(in_data, exception_on_overflow=False)
+                self.loopback_stream.write(in_data)
             if not self.is_muted:
                 encoded_data = base64.b64encode(in_data).decode('utf-8')
                 if self.client_thread and self.client_thread.is_running:
@@ -1333,7 +1351,7 @@ class MainWindow(QMainWindow):
 
     def toggle_mute(self, checked):
         self.is_muted = checked
-        self.mute_button.setText("Unmute" if checked else "Mute")
+        self.mute_button.setText("၊၊၊၊၊၊" if checked else "၊၊||၊")
         self.mute_button.setProperty("muted", str(checked).lower())
         self.mute_button.style().polish(self.mute_button)
 
@@ -1357,7 +1375,7 @@ class MainWindow(QMainWindow):
                     output=True, frames_per_buffer=self.AUDIO_CHUNK_SIZE,
                     output_device_index=None if output_idx == -1 else output_idx
                 )
-            self.audio_output_streams[sender].write(audio_data, exception_on_overflow=False)
+            self.audio_output_streams[sender].write(audio_data)
         except Exception: 
             pass
 
